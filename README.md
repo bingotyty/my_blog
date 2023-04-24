@@ -10,3 +10,7 @@
 - 编写代码，测试，提交
 - 发起 PR
 - 审核通过后合并，协作完成
+
+
+check here for anyhelp 
+https://pyloong.github.io/pythonic-project-guidelines/practices/web/#39

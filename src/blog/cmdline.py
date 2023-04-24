@@ -1,3 +1,13 @@
+import click
+from pathlib import Path
+from alembic import config
+from click import Context
+
+from blog import utils
+from blog.config import settings
+from blog.server import Server
+
+
 @click.group(invoke_without_command=True)
 @click.pass_context
 @click.option('-V', '--version', is_flag=True, help='Show version and exit.')
@@ -23,3 +33,15 @@ def server(host, port, level):
             settings.set(name, value)
 
     Server().run()
+
+@main.command()
+@click.pass_context
+@click.option('-h', '--help', is_flag=True)
+@click.argument('args', nargs=-1)
+def migrate(ctx: Context, help, args):
+    """usage migrate -- arguments    """
+    with utils.chdir(Path(__file__).parent / 'migration'):
+        argv = list(args)
+        if help:
+            argv.append('--help')
+        config.main(prog=ctx.command_path, argv=argv)

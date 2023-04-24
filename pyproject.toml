@@ -15,6 +15,7 @@ mysqlclient = "^2.1.1"
 pydantic = "^1.10.7"
 fastapi = "^0.95.1"
 uvicorn = "^0.21.1"
+alembic = "^1.10.3"
 
 [tool.poetry.scripts]
 my_blog = "blog.cmdline:main"
