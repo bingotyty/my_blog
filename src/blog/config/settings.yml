@@ -1,9 +1,11 @@
-LOG_LEVEL: INFO
+LOG_LEVEL: DEBUG
+HOST: 127.0.0.1
+PORT: 8000
 # ######################################################################################################
 # # https://docs.sqlalchemy.org/en/13/core/engines.html
 DATABASE:
   DRIVER: mysql
-  NAME: example_blog
+  NAME: db_blog
   HOST: 127.0.0.1
   PORT: 3306
   USERNAME: root
