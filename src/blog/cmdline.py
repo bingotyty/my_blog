@@ -1,4 +1,5 @@
 import click
+import pkg_resources
 from pathlib import Path
 from alembic import config
 from click import Context
@@ -7,6 +8,8 @@ from blog import utils
 from blog.config import settings
 from blog.server import Server
 
+
+__version__ = pkg_resources.get_distribution("blog").version
 
 @click.group(invoke_without_command=True)
 @click.pass_context

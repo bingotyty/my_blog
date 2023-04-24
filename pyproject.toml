@@ -20,6 +20,12 @@ alembic = "^1.10.3"
 [tool.poetry.scripts]
 my_blog = "blog.cmdline:main"
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.3.1"
+requests = "^2.28.2"
+httpx = "^0.24.0"
+pytest-mock = "^3.10.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

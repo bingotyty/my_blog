@@ -16,7 +16,7 @@ url = URL(
     database=settings.DATABASE.get('NAME', None),
     query=settings.DATABASE.get('QUERY', None),
 )
-
+# print(url)
 engine: Engine = create_engine(url, echo=True)
 
 SessionFactory = sessionmaker(bind=engine, autocommit=False, autoflush=True)
