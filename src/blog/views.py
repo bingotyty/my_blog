@@ -2,7 +2,8 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
 from blog.dependencies import CommonQueryParams, get_db
-from blog.schemas import (ArticleSchema, CreateArticleSchema, UpdateArticleSchema)
+from blog.schemas import (ArticleSchema, CreateArticleSchema,
+                          UpdateArticleSchema)
 from blog.services import ArticleService
 
 router = APIRouter()

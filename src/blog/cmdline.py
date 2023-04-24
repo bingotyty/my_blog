@@ -1,6 +1,7 @@
+from pathlib import Path
+
 import click
 import pkg_resources
-from pathlib import Path
 from alembic import config
 from click import Context
 
@@ -8,8 +9,8 @@ from blog import utils
 from blog.config import settings
 from blog.server import Server
 
-
 __version__ = pkg_resources.get_distribution("blog").version
+
 
 @click.group(invoke_without_command=True)
 @click.pass_context
@@ -20,9 +21,12 @@ def main(ctx, version):
     elif ctx.invoked_subcommand is None:
         click.echo(ctx.get_help())
 
+
 @main.command()
-@click.option('-h', '--host', show_default=True, help=f'Host IP. Default: {settings.HOST}')
-@click.option('-p', '--port', show_default=True, type=int, help=f'Port. Default: {settings.PORT}')
+@click.option('-h', '--host', show_default=True,
+              help=f'Host IP. Default: {settings.HOST}')
+@click.option('-p', '--port', show_default=True,
+              type=int, help=f'Port. Default: {settings.PORT}')
 @click.option('--level', help='Log level')
 def server(host, port, level):
     """Start server."""
@@ -36,6 +40,7 @@ def server(host, port, level):
             settings.set(name, value)
 
     Server().run()
+
 
 @main.command()
 @click.pass_context

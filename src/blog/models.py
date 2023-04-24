@@ -29,4 +29,5 @@ class Article(BaseModel):
     title = Column(String(500))
     body = Column(Text(), nullable=True)
     create_time = Column(DateTime, default=datetime.now, nullable=False)
-    update_time = Column(DateTime, default=datetime.now, onupdate=datetime.now, nullable=False)
+    update_time = Column(DateTime, default=datetime.now,
+                         onupdate=datetime.now, nullable=False)

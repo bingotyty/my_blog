@@ -5,9 +5,8 @@ from pathlib import Path
 
 import pytest
 from alembic import command, config
-from fastapi.testclient import TestClient
 from click.testing import CliRunner
-
+from fastapi.testclient import TestClient
 from sqlalchemy.orm import Session
 
 from blog import migration, server

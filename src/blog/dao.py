@@ -4,7 +4,8 @@ from fastapi.encoders import jsonable_encoder
 from sqlalchemy.orm import Session
 
 from blog.models import Article
-from blog.schemas import CreateSchema, ModelType, UpdateSchema, CreateArticleSchema, UpdateArticleSchema
+from blog.schemas import (CreateArticleSchema, CreateSchema, ModelType,
+                          UpdateArticleSchema, UpdateSchema)
 
 
 class BaseDAO(Generic[ModelType, CreateSchema, UpdateSchema]):
@@ -24,7 +25,8 @@ class BaseDAO(Generic[ModelType, CreateSchema, UpdateSchema]):
         session.commit()
         return obj
 
-    def patch(self, session: Session, pk: int, obj_in: UpdateSchema) -> ModelType:
+    def patch(self, session: Session, pk: int,
+              obj_in: UpdateSchema) -> ModelType:
         """Patch"""
         obj = self.get_by_id(session, pk)
         update_data = obj_in.dict(exclude_unset=True)

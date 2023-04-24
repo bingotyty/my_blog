@@ -26,7 +26,8 @@ class BaseService(Generic[ModelType, CreateSchema, UpdateSchema]):
         """Create a object"""
         return self.dao.create(session, obj_in)
 
-    def patch(self, session: Session, pk: int, obj_in: UpdateSchema) -> ModelType:
+    def patch(self, session: Session, pk: int,
+              obj_in: UpdateSchema) -> ModelType:
         """Update"""
         return self.dao.patch(session, pk, obj_in)
 

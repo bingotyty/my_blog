@@ -60,7 +60,7 @@ def run_migrations_online():
 
     """
     configuration = config.get_section(config.config_ini_section)
-    configuration['sqlalchemy.url'] = "mysql://blogusr:syzyk1989@0.0.0.0:3306/db_blog?charset=utf8mb4" #str(db.url)
+    configuration['sqlalchemy.url'] = "mysql://blogusr:syzyk1989@0.0.0.0:3306/db_blog?charset=utf8mb4"  # str(db.url)
     # print(configuration)
     connectable = engine_from_config(
         configuration,
